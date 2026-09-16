@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import pagesData from './pages.json';
 import aliasesData from './aliases.json';
+import { updateSeo } from './seo';
 
 const CORE_STYLES = [
   '/assets/3d882a730e-main.min.css',
@@ -243,7 +244,7 @@ export default function App() {
   useEffect(() => {
     if (!page) return;
 
-    if (page.title) document.title = page.title;
+    updateSeo(currentPath);
     if (page.lang) document.documentElement.lang = page.lang;
 
     // Synchronize body classes (preserving responsive & mobile classes)
