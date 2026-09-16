@@ -1,4 +1,7 @@
-const brandKeywords = ['Alignaa', 'Alignaa Aligner', 'Dr. Praful'];
+const brandKeywords = ['Alignaa', 'Alignaa Aligner', 'Dr. Praful', 'Praful Ozarkar'];
+
+const introductionKeywords = ['Alignaa founder Praful Ozarkar', 'Alignaa introduction video', 'clinician-led clear aligners', 'hybrid orthodontic treatment', 'digital orthodontics', 'anterior crossbite treatment', 'Dr. Ganesh Shinde', 'Dr. Tanvi Bore', 'clear aligner patient experience'];
+const germanIntroductionKeywords = ['Alignaa Gründer Praful Ozarkar', 'Alignaa Vorstellungsvideo', 'ärztlich begleitete Aligner-Behandlung', 'hybride Kieferorthopädie', 'digitale Kieferorthopädie', 'anteriorer Kreuzbiss', 'Dr. Ganesh Shinde', 'Dr. Tanvi Bore', 'Aligner Patientenerfahrung'];
 
 const entries = {
   '/': ['Clear Aligners for Dental Professionals | Alignaa', 'Explore Alignaa clear aligner solutions for dentists and orthodontists, with digital treatment planning, 3D simulation, case studies and training.', ['clear aligners', 'clear aligner solutions', 'dental aligners', 'orthodontic aligners', 'aligners for dentists', 'aligners for orthodontists']],
@@ -18,9 +21,15 @@ const entries = {
 };
 
 export function getSeo(path) {
-  const [title, description, keywords] = entries[path] || entries['/'];
+  const [title, defaultDescription, keywords] = entries[path] || entries['/'];
+  const videoKeywords = path === '/' ? introductionKeywords : path === '/de/startseite/' ? germanIntroductionKeywords : [];
+  const description = path === '/'
+    ? 'Discover Alignaa clear aligners for dental professionals. Meet founder Praful Ozarkar and the clinical team, and explore their approach and patient experience.'
+    : path === '/de/startseite/'
+      ? 'Entdecken Sie Alignaa Aligner für Zahnärzte. Lernen Sie Gründer Praful Ozarkar, das Behandlungsteam und die Erfahrungen einer Patientin kennen.'
+      : defaultDescription;
   const legal = /privacy-policy|legal-disclosure|datenschutz|impressum/.test(path);
-  return { title, description, keywords: [...(legal ? ['Alignaa'] : brandKeywords), ...keywords].join(', ') };
+  return { title, description, keywords: [...(legal ? ['Alignaa'] : brandKeywords), ...keywords, ...videoKeywords].join(', ') };
 }
 
 export function seoMeta(seo) {

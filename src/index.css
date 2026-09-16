@@ -9,3 +9,15 @@
   text-decoration: underline !important;
 }
 
+.alignaa-introduction { width: 100%; padding: 24px 0; text-align: center; }
+.alignaa-introduction .alignaa-introduction-eyebrow { margin: 0 0 12px; color: #007b7f; font-size: 11px; font-weight: 600; letter-spacing: .16em; }
+.alignaa-introduction h2 { margin: 0 0 16px; color: #263b47; }
+.alignaa-introduction .alignaa-introduction-copy { max-width: 640px; margin: 0 auto 28px; color: #52626a; font-size: 15px; line-height: 1.8; }
+.alignaa-introduction .alignaa-introduction-media { width: 100%; max-width: 324px; margin: 0 auto; }
+.alignaa-introduction video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: contain; border-radius: 14px; background: #f1f7f8; box-shadow: 0 12px 36px #163e4d1a; }
+.alignaa-introduction figcaption { margin-top: 14px; color: #52626a; font-size: 12px; line-height: 1.6; }
+@media (max-width: 600px) {
+  .alignaa-introduction { padding: 16px 0; }
+  .alignaa-introduction .alignaa-introduction-media { max-width: 290px; }
+}
+
