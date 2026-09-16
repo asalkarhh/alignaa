@@ -6,6 +6,8 @@
     <title>Home - Alignaa Aligner</title>
     <link rel="icon" type="image/png" href="/assets/alignaa-favicon.png" />
     <link rel="apple-touch-icon" href="/assets/alignaa-favicon.png" />
+    <link rel="preload" href="/assets/Logo_color.png" as="image" />
+    <link rel="stylesheet" href="/preloader.css" />
     <link rel="stylesheet" href="/assets/e2fe397c88-google-fonts.css" />
     <link rel="stylesheet" href="/assets/3d882a730e-main.min.css" />
     <link rel="stylesheet" href="/assets/e0e87ecd47-menu-animation.min.css" />
@@ -13,6 +15,18 @@
     <link rel="stylesheet" href="/assets/aa279cd999-slick.min.css" />
   </head>
   <body class="home page-template-default page wp-custom-logo ast-theme-transparent-header ast-desktop ast-page-builder-template ast-no-sidebar astra-4.13.11 ast-header-custom-item-inside ast-single-post ast-inherit-site-logo-transparent ast-hfb-header">
+    <div id="alignaa-preloader" role="status" aria-live="polite" aria-label="Loading Alignaa">
+      <div class="alignaa-loader-scene" aria-hidden="true">
+        <div class="alignaa-loader-orbit"></div>
+        <div class="alignaa-loader-orbit alignaa-loader-orbit-secondary"></div>
+        <div class="alignaa-loader-logo"><img src="/assets/Logo_color.png" alt="" width="5950" height="1444" fetchpriority="high" /></div>
+        <div class="alignaa-loader-shadow"></div>
+      </div>
+      <span class="alignaa-loader-caption">CLARITY IN EVERY SMILE</span>
+      <span class="alignaa-loader-track" aria-hidden="true"></span>
+    </div>
+    <noscript><style>#alignaa-preloader { display: none; }</style></noscript>
+    <script src="/preloader.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
