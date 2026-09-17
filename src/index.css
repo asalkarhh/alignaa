@@ -1,4 +1,25 @@
 
+.wp-block-uagb-container.alignaa-video-hero {
+  position: relative;
+  isolation: isolate;
+  background-color: #f2f2f2;
+}
+
+#page .alignaa-video-hero > video.alignaa-home-background-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100% !important;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.wp-block-uagb-container.alignaa-video-hero::before { z-index: -1; }
+
 .developer-link {
   color: inherit !important;
   text-decoration: none !important;
@@ -25,5 +46,21 @@
 @media (max-width: 600px) {
   .alignaa-introduction { padding: 16px 0; }
   .alignaa-introduction .alignaa-introduction-media { max-width: 290px; }
+}
+
+/* Ensure videos have no overlays or opacity changes */
+video, .wp-block-video video, .alignaa-introduction-media video {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Remove any pseudo-element overlays from video containers */
+.wp-block-video::before, .wp-block-video::after,
+.alignaa-introduction-media::before, .alignaa-introduction-media::after,
+.wp-block-uagb-container::before, .wp-block-uagb-container::after {
+  background: transparent !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
