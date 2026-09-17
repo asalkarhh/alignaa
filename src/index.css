@@ -72,3 +72,22 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   color: black !important;
 }
 
+
+.custom-premium-bg-section {
+  background-image: url('/assets/06e2de7808-shutterstock_1814088326-scaled.jpg') !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  padding: 50px 20px !important; /* ensure there's some padding */
+}
+
+/* Ensure any inner wrappers in this group are also transparent so the background shows through */
+.custom-premium-bg-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* If they need the text to be readable, they might need an overlay or text shadow, but let's just do what they asked first */
+
