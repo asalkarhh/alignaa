@@ -64,3 +64,11 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   pointer-events: none !important;
 }
 
+
+/* Change hero text color to black for better visibility against the video */
+.uagb-block-7f3f9679 .uagb-ifb-title-prefix,
+.uagb-block-7f3f9679 .uagb-ifb-title,
+.uagb-block-7f3f9679 .uagb-ifb-desc {
+  color: black !important;
+}
+
