@@ -2,7 +2,12 @@
 .wp-block-uagb-container.alignaa-video-hero {
   position: relative;
   isolation: isolate;
-  background-color: #f2f2f2;
+  background-color: #FFFFFF;
+}
+
+/* The homepage hero uses the video as its only visual background. */
+.home .wp-block-uagb-container.uagb-block-047cd754 {
+  background-image: none !important;
 }
 
 #page .alignaa-video-hero > video.alignaa-home-background-video {
@@ -20,6 +25,27 @@
 
 .wp-block-uagb-container.alignaa-video-hero::before { z-index: -1; }
 
+/* Keep the dental model centered in the narrow mobile hero crop. */
+@media (max-width: 767px) {
+  .home .wp-block-uagb-container.uagb-block-047cd754 {
+    min-height: calc(100svh - 78px) !important;
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+    background-color: #fff !important;
+  }
+
+  #page .wp-block-uagb-container.uagb-block-047cd754 > video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+}
+
 .developer-link {
   color: inherit !important;
   text-decoration: none !important;
@@ -28,6 +54,154 @@
 
 .developer-link:hover {
   text-decoration: underline !important;
+}
+
+/* Keep navbar text readable on the white header in every state. */
+.main-header-menu > .menu-item > .menu-link,
+.main-header-menu > .menu-item > .menu-link:hover,
+.main-header-menu > .menu-item > .menu-link:focus,
+.main-header-menu > .menu-item.current-menu-item > .menu-link,
+.main-header-menu > .menu-item.current-menu-ancestor > .menu-link,
+.main-header-menu > .menu-item.current-menu-parent > .menu-link,
+.ast-theme-transparent-header .main-header-menu > .menu-item > .menu-link,
+.ast-theme-transparent-header .main-header-menu > .menu-item > .menu-link:hover,
+.ast-theme-transparent-header .main-header-menu > .menu-item > .menu-link:focus,
+.ast-theme-transparent-header .main-header-menu > .menu-item.current-menu-item > .menu-link,
+.ast-theme-transparent-header .main-header-menu > .menu-item.current-menu-ancestor > .menu-link,
+.ast-theme-transparent-header .main-header-menu > .menu-item.current-menu-parent > .menu-link,
+.ast-mobile-popup-drawer .main-header-menu .menu-link,
+.ast-mobile-popup-drawer .main-header-menu .menu-link:hover,
+.ast-mobile-popup-drawer .main-header-menu .menu-link:focus,
+.ast-mobile-popup-drawer .main-header-menu .current-menu-item > .menu-link {
+  color: #263b47 !important;
+}
+
+/* Keep the mobile hamburger visible on the white header. */
+@media (max-width: 921.99px) {
+  #ast-mobile-header .main-header-menu-toggle,
+  #ast-mobile-header .main-header-menu-toggle:hover,
+  #ast-mobile-header .main-header-menu-toggle:focus {
+    color: #263b47 !important;
+    background: transparent !important;
+    border: 1px solid #263b47 !important;
+  }
+
+  #ast-mobile-header .main-header-menu-toggle svg,
+  #ast-mobile-header .main-header-menu-toggle svg path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+}
+
+/* Premium mobile navigation drawer styling. */
+@media (max-width: 921.99px) {
+  .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+    top: 16px !important;
+    right: 16px !important;
+    bottom: auto !important;
+    left: 16px !important;
+    width: auto !important;
+    max-height: calc(100vh - 32px) !important;
+    background: transparent !important;
+    border-radius: 0 0 18px 18px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    transform: translate3d(0, -120%, 0) !important;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .ast-mobile-popup-drawer.active .ast-mobile-popup-inner,
+  .ast-mobile-popup-drawer.ast-mobile-popup-active .ast-mobile-popup-inner {
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-header {
+    min-height: 64px !important;
+    padding: 0 18px !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+  }
+
+  .ast-mobile-popup-drawer .menu-toggle-close {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    color: #263b47 !important;
+    background: rgba(38, 59, 71, 0.08) !important;
+    border: 1px solid rgba(38, 59, 71, 0.28) !important;
+    border-radius: 50% !important;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease !important;
+  }
+
+  .ast-mobile-popup-drawer .menu-toggle-close:hover,
+  .ast-mobile-popup-drawer .menu-toggle-close:focus {
+    color: #263b47 !important;
+    background: rgba(38, 59, 71, 0.18) !important;
+    border-color: rgba(38, 59, 71, 0.55) !important;
+    transform: rotate(90deg) !important;
+  }
+
+  .ast-mobile-popup-drawer .menu-toggle-close svg,
+  .ast-mobile-popup-drawer .menu-toggle-close svg path {
+    width: 18px !important;
+    height: 18px !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content {
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu {
+    margin: 0 !important;
+    padding: 8px 0 !important;
+    background: transparent !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu > .menu-item {
+    border-bottom: 1px solid rgba(38, 59, 71, 0.1) !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu > .menu-item:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu > .menu-item > .menu-link {
+    min-height: 58px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 22px !important;
+    color: #263b47 !important;
+    background: transparent !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+    transition: color 160ms ease, background-color 160ms ease, padding-left 160ms ease !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu > .menu-item > .menu-link:hover,
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu > .menu-item > .menu-link:focus {
+    color: #007b7f !important;
+    background: rgba(38, 59, 71, 0.03) !important;
+    padding-left: 27px !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-content .main-header-menu .ast-menu-toggle {
+    color: #263b47 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .ast-mobile-popup-drawer .ast-mobile-popup-overlay {
+    background: transparent !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
 }
 
 /* Keep the complete 3D plan visible within its existing video box. */
@@ -91,3 +265,32 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 
 /* If they need the text to be readable, they might need an overlay or text shadow, but let's just do what they asked first */
 
+/* Keep the navbar sticky at the top when scrolling */
+#masthead, .site-header, #ast-desktop-header, #ast-mobile-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 9999;
+}
+
+/* Let desktop hero media begin at the top beneath an overlay header. */
+@media (min-width: 922px) {
+  #masthead,
+  .site-header,
+  #ast-desktop-header {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: transparent !important;
+  }
+}
+
+/* Custom hero background image specifically for /the-Alignaa-system/ page */
+.page-id-2497 .wp-block-uagb-container.uagb-block-047cd754 {
+  background-image: url('/assets/alignerProduct.jpeg') !important;
+  background-size: 50% auto !important; /* Make it smaller instead of fully covering */
+  background-position: right center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+}
