@@ -29,6 +29,37 @@ function normalizePath(rawPath) {
   return path;
 }
 
+function InstagramNavLink() {
+  return (
+      <a
+        className="menu-link alignaa-instagram-link"
+        href="https://www.instagram.com/alignaa_india/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow Alignaa on Instagram"
+      >
+        <svg
+          className="alignaa-instagram-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" className="alignaa-instagram-dot" />
+        </svg>
+      </a>
+  );
+}
+
+function InstagramNavItem() {
+  return (
+    <li className="menu-item alignaa-instagram-item">
+      <InstagramNavLink />
+    </li>
+  );
+}
+
 function ASTNode({ node, ctx }) {
   if (node == null) return null;
   if (typeof node === 'string') return node;
@@ -150,9 +181,79 @@ function ASTNode({ node, ctx }) {
     };
   }
 
-  const renderedChildren = children.map((child, idx) => (
-    <ASTNode key={idx} node={child} ctx={ctx} />
-  ));
+  let instagramInserted = false;
+  const renderedChildren = children.flatMap((child, idx) => {
+    const isPortalLink =
+      child?.tag === 'a' &&
+      typeof child.props?.href === 'string' &&
+      child.props.href.toLowerCase().includes('alignaa-portal.com');
+    const isPortalItem =
+      tag === 'ul' &&
+      child?.tag === 'li' &&
+      child.children?.some(
+        (nestedChild) =>
+          nestedChild?.tag === 'a' &&
+          typeof nestedChild.props?.href === 'string' &&
+          nestedChild.props.href.toLowerCase().includes('alignaa-portal.com')
+      );
+
+    const isMobileViewport =
+      typeof window !== 'undefined' && window.matchMedia('(max-width: 921.99px)').matches;
+    const shouldInsertInstagram = false;
+
+    if (
+      shouldInsertInstagram &&
+      (isPortalItem || isPortalLink) &&
+      !instagramInserted &&
+      (!ctx.instagramCount || ctx.instagramCount.current === 0)
+    ) {
+      instagramInserted = true;
+      if (ctx.instagramCount) ctx.instagramCount.current += 1;
+      return [
+        isPortalItem ? (
+          <InstagramNavItem key={`${idx}-instagram`} />
+        ) : (
+          <InstagramNavLink key={`${idx}-instagram`} />
+        ),
+        <ASTNode key={idx} node={child} ctx={ctx} />,
+      ];
+    }
+
+    return [<ASTNode key={idx} node={child} ctx={ctx} />];
+  });
+
+  // The source language switcher provides flag images with alt text only.
+  // Render that alt text as visible dropdown labels as well.
+  if (tag === 'a' && (cleanProps.lang === 'en-GB' || cleanProps.lang === 'de-DE')) {
+    renderedChildren.push(
+      <span className="alignaa-language-label" key="language-label">
+        {cleanProps.lang === 'de-DE' ? 'Deutsch' : 'English'}
+      </span>
+    );
+  }
+
+  if (
+    tag === 'div' &&
+    ctx.isMobilePopup &&
+    cleanProps.className?.includes('ast-mobile-popup-content')
+  ) {
+    renderedChildren.push(
+      <div className="alignaa-mobile-instagram" key="mobile-instagram">
+        <InstagramNavLink />
+      </div>
+    );
+  }
+
+  if (
+    tag === 'div' &&
+    ctx.isHeader &&
+    !ctx.isMobilePopup &&
+    cleanProps.className?.includes('ast-builder-button-wrap')
+  ) {
+    renderedChildren.unshift(
+      <InstagramNavLink key="desktop-instagram" />
+    );
+  }
 
   return React.createElement(tag, cleanProps, ...renderedChildren);
 }
@@ -320,11 +421,17 @@ export default function App() {
     <>
       <div className="hfeed site" id="page">
         <ASTNode node={page.skip} ctx={ctx} />
-        <ASTNode node={page.header} ctx={ctx} />
+        <ASTNode
+          node={page.header}
+          ctx={{ ...ctx, isHeader: true, instagramCount: { current: 0 } }}
+        />
         <ASTNode node={page.content} ctx={ctx} />
         <ASTNode node={page.footer} ctx={ctx} />
       </div>
-      <ASTNode node={page.mobile} ctx={ctx} />
+      <ASTNode
+        node={page.mobile}
+        ctx={{ ...ctx, isHeader: true, isMobilePopup: true, instagramCount: { current: 0 } }}
+      />
       <ASTNode node={page.scrollTop} ctx={ctx} />
     </>
   );

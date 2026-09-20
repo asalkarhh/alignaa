@@ -10,6 +10,41 @@
   background-image: none !important;
 }
 
+/* A soft, organic white edge blends the off-white video into the page below. */
+#page .wp-block-uagb-container.uagb-block-047cd754::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: -1%;
+  right: -1%;
+  bottom: -18px;
+  height: clamp(42px, 5vw, 72px);
+  background: #fff !important;
+  display: block !important;
+  pointer-events: none;
+  clip-path: polygon(
+    0 44%, 2% 51%, 4% 43%, 6% 57%, 8% 47%, 10% 55%,
+    12% 42%, 14% 53%, 16% 46%, 18% 59%, 20% 48%, 22% 55%,
+    24% 43%, 26% 52%, 28% 46%, 30% 58%, 32% 48%, 34% 54%,
+    36% 42%, 38% 53%, 40% 47%, 42% 57%, 44% 46%, 46% 54%,
+    48% 43%, 50% 52%, 52% 46%, 54% 58%, 56% 48%, 58% 54%,
+    60% 42%, 62% 53%, 64% 46%, 66% 57%, 68% 47%, 70% 54%,
+    72% 43%, 74% 52%, 76% 46%, 78% 58%, 80% 48%, 82% 54%,
+    84% 42%, 86% 53%, 88% 46%, 90% 57%, 92% 47%, 94% 54%,
+    96% 43%, 98% 52%, 100% 45%, 100% 100%, 0 100%
+  );
+}
+
+/* Let the white transition extend beyond the hero's video box. */
+#page .wp-block-uagb-container.uagb-block-047cd754 {
+  overflow: visible !important;
+}
+
+#page .wp-block-uagb-container.uagb-block-047cd754::after {
+  content: "" !important;
+  opacity: 1 !important;
+}
+
 #page .alignaa-video-hero > video.alignaa-home-background-video {
   position: absolute;
   inset: 0;
@@ -21,6 +56,11 @@
   object-position: center;
   pointer-events: none;
   z-index: -2;
+}
+
+/* Lift the video’s light background toward the site’s pure white without changing its layout. */
+#page .wp-block-uagb-container.uagb-block-047cd754 > video {
+  filter: brightness(1.06) contrast(0.99);
 }
 
 .wp-block-uagb-container.alignaa-video-hero::before { z-index: -1; }
@@ -56,6 +96,100 @@
   text-decoration: underline !important;
 }
 
+/* Social link placed immediately before the Alignaa. Portal button. */
+.alignaa-instagram-item {
+  display: flex !important;
+  align-items: center;
+}
+
+.alignaa-instagram-link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0 !important;
+  color: #263b47 !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 50%;
+}
+
+/* Keep the Instagram link and portal button on one horizontal navbar row. */
+.ast-builder-button-wrap:has(> .alignaa-instagram-link) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.ast-builder-button-wrap:has(> .alignaa-instagram-link) > .alignaa-instagram-link {
+  flex: 0 0 42px;
+}
+
+.alignaa-instagram-link:hover,
+.alignaa-instagram-link:focus-visible {
+  color: #007b7f !important;
+  background: rgba(0, 123, 127, 0.08) !important;
+}
+
+.alignaa-instagram-icon {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.alignaa-instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.pll-parent-menu-item > .sub-menu .alignaa-language-label {
+  display: inline-block;
+  margin-left: 10px;
+  color: #263b47 !important;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.alignaa-mobile-instagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0 18px;
+  border-top: 1px solid rgba(38, 59, 71, 0.14);
+}
+
+.alignaa-mobile-instagram .alignaa-instagram-link {
+  width: 46px;
+  height: 46px;
+}
+
+@media (max-width: 921.99px) {
+  /* The desktop header remains in the DOM on mobile; keep only the mobile copy. */
+  #masthead #ast-desktop-header .alignaa-instagram-link,
+  #ast-desktop-header .alignaa-instagram-link,
+  #ast-mobile-header .alignaa-instagram-link {
+    display: none !important;
+  }
+
+  .ast-mobile-popup-drawer .alignaa-instagram-item {
+    display: block !important;
+  }
+
+  .ast-mobile-popup-drawer .alignaa-instagram-link {
+    width: 100%;
+    height: 58px;
+    justify-content: flex-start;
+    padding: 0 20px !important;
+    border-radius: 0;
+  }
+}
+
 /* Keep navbar text readable on the white header in every state. */
 .main-header-menu > .menu-item > .menu-link,
 .main-header-menu > .menu-item > .menu-link:hover,
@@ -74,6 +208,30 @@
 .ast-mobile-popup-drawer .main-header-menu .menu-link:focus,
 .ast-mobile-popup-drawer .main-header-menu .current-menu-item > .menu-link {
   color: #263b47 !important;
+}
+
+/* Use the portal button's teal treatment for navigation hover and active states. */
+.main-header-menu > .menu-item:not(.ast-custom-button) > .menu-link:hover,
+.main-header-menu > .menu-item:not(.ast-custom-button) > .menu-link:focus,
+.main-header-menu > .menu-item.current-menu-item > .menu-link,
+.main-header-menu > .menu-item.current-menu-ancestor > .menu-link,
+.main-header-menu > .menu-item.current-menu-parent > .menu-link {
+  color: #fff !important;
+  background-color: #007b7f !important;
+  border-color: #007b7f !important;
+  outline: none !important;
+}
+
+/* Keep navbar links unfilled; only the text indicates hover/current page. */
+.main-header-menu > .menu-item:not(.ast-custom-button) > .menu-link:hover,
+.main-header-menu > .menu-item:not(.ast-custom-button) > .menu-link:focus,
+.main-header-menu > .menu-item.current-menu-item > .menu-link,
+.main-header-menu > .menu-item.current-menu-ancestor > .menu-link,
+.main-header-menu > .menu-item.current-menu-parent > .menu-link {
+  color: #007b7f !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  outline: none !important;
 }
 
 /* Keep the mobile hamburger visible on the white header. */
@@ -290,7 +448,22 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 .page-id-2497 .wp-block-uagb-container.uagb-block-047cd754 {
   background-image: url('/assets/alignerProduct.jpeg') !important;
   background-size: 50% auto !important; /* Make it smaller instead of fully covering */
-  background-position: right center !important;
+  background-position: right 78px !important;
   background-repeat: no-repeat !important;
   background-color: transparent !important;
+}
+
+/* Center the Free Webinar hero's registration button. */
+.page-id-2512 .wp-block-uagb-container.uagb-block-047cd754 > .wp-block-buttons {
+  justify-content: center !important;
+}
+
+.page-id-2512 .wp-block-buttons:has(a[href*="gotowebinar"]) {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.page-id-2512 a[href*="gotowebinar"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
