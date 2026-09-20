@@ -20,6 +20,9 @@ const entries = {
   '/de/impressum/': ['Impressum | Alignaa', 'Lesen Sie das Alignaa-Impressum mit Angaben zur Website-Verantwortung und zur Herstellung der Aligner.', ['Alignaa Impressum']],
 };
 
+export const siteUrl = 'https://www.alignaa.in';
+export const socialImage = `${siteUrl}/assets/alignaa-introduction-poster.jpg`;
+
 export function getSeo(path) {
   const [title, defaultDescription, keywords] = entries[path] || entries['/'];
   const videoKeywords = path === '/' ? introductionKeywords : path === '/de/startseite/' ? germanIntroductionKeywords : [];
@@ -29,7 +32,7 @@ export function getSeo(path) {
       ? 'Entdecken Sie Alignaa Aligner für Zahnärzte. Lernen Sie Gründer Praful Ozarkar, das Behandlungsteam und die Erfahrungen einer Patientin kennen.'
       : defaultDescription;
   const legal = /privacy-policy|legal-disclosure|datenschutz|impressum/.test(path);
-  return { title, description, keywords: [...(legal ? ['Alignaa'] : brandKeywords), ...keywords, ...videoKeywords].join(', ') };
+  return { path, title, description, keywords: [...(legal ? ['Alignaa'] : brandKeywords), ...keywords, ...videoKeywords].join(', ') };
 }
 
 export function seoMeta(seo) {
@@ -40,9 +43,13 @@ export function seoMeta(seo) {
     ['property', 'og:description', seo.description],
     ['property', 'og:type', 'website'],
     ['property', 'og:site_name', 'Alignaa'],
+    ['property', 'og:url', `${siteUrl}${seo.path || '/'}`],
+    ['property', 'og:image', socialImage],
+    ['property', 'og:image:alt', 'Alignaa clear aligner treatment'],
     ['name', 'twitter:card', 'summary'],
     ['name', 'twitter:title', seo.title],
     ['name', 'twitter:description', seo.description],
+    ['name', 'twitter:image', socialImage],
   ];
 }
 

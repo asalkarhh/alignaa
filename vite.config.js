@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { readFileSync } from 'node:fs';
-import { getSeo, seoMeta } from './src/seo.js';
+import { getSeo, seoMeta, siteUrl, socialImage } from './src/seo.js';
 
 const pages = JSON.parse(readFileSync(new URL('./src/pages.json', import.meta.url), 'utf8'));
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
@@ -11,10 +11,19 @@ function pageHtml(html, path) {
   const tags = seoMeta(seo).map(([attribute, key, content]) =>
     `    <meta ${attribute}="${key}" content="${escapeHtml(content)}" data-seo />`
   ).join('\n');
+  const canonical = `${siteUrl}${path === '/' ? '/' : path}`;
+  const structuredData = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Alignaa',
+    url: siteUrl,
+    logo: `${siteUrl}/assets/Logo_color.png`,
+    image: socialImage,
+  });
   return html.replace(/\s*<meta\b[^>]*data-seo[^>]*>/g, '')
     .replace(/<html lang="[^"]*">/, `<html lang="${pages[path].lang}">`)
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(seo.title)}</title>`)
-    .replace('</head>', `${tags}\n  </head>`);
+    .replace('</head>', `${tags}\n    <link rel="canonical" href="${canonical}" />\n    <script type="application/ld+json">${structuredData}</script>\n  </head>`);
 }
 
 function seoPages() {
