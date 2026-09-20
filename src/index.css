@@ -6,7 +6,8 @@
 }
 
 /* The homepage hero uses the video as its only visual background. */
-.home .wp-block-uagb-container.uagb-block-047cd754 {
+.home .wp-block-uagb-container.uagb-block-047cd754,
+.page-id-3004 .wp-block-uagb-container.uagb-block-047cd754 {
   background-image: none !important;
 }
 
@@ -45,7 +46,8 @@
   opacity: 1 !important;
 }
 
-#page .alignaa-video-hero > video.alignaa-home-background-video {
+#page .alignaa-video-hero > video.alignaa-home-background-video,
+#page .wp-block-uagb-container.uagb-block-047cd754 > video.alignaa-home-background-video {
   position: absolute;
   inset: 0;
   display: block;
@@ -58,6 +60,13 @@
   z-index: -2;
 }
 
+/* The German export lacks the original hero wrapper class; keep its injected
+   background video inside the hero stacking context so it remains visible. */
+#page .page-id-3004 .wp-block-uagb-container.uagb-block-047cd754 > video.alignaa-home-background-video,
+#page .wp-block-uagb-container.uagb-block-047cd754 > video.alignaa-home-background-video {
+  z-index: 0;
+}
+
 /* Lift the video’s light background toward the site’s pure white without changing its layout. */
 #page .wp-block-uagb-container.uagb-block-047cd754 > video {
   filter: brightness(1.06) contrast(0.99);
@@ -67,7 +76,8 @@
 
 /* Keep the dental model centered in the narrow mobile hero crop. */
 @media (max-width: 767px) {
-  .home .wp-block-uagb-container.uagb-block-047cd754 {
+  .home .wp-block-uagb-container.uagb-block-047cd754,
+  .page-id-3004 .wp-block-uagb-container.uagb-block-047cd754 {
     min-height: calc(100svh - 78px) !important;
     padding-top: 0 !important;
     padding-bottom: 20px !important;
@@ -445,7 +455,8 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 }
 
 /* Custom hero background image specifically for /the-Alignaa-system/ page */
-.page-id-2497 .wp-block-uagb-container.uagb-block-047cd754 {
+.page-id-2497 .wp-block-uagb-container.uagb-block-047cd754,
+.page-id-3096 .wp-block-uagb-container.uagb-block-047cd754 {
   background-image: url('/assets/alignerProduct.jpeg') !important;
   background-size: 50% auto !important; /* Make it smaller instead of fully covering */
   background-position: right 78px !important;

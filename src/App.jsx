@@ -182,7 +182,32 @@ function ASTNode({ node, ctx }) {
   }
 
   let instagramInserted = false;
-  const renderedChildren = children.flatMap((child, idx) => {
+  const renderedNodeChildren =
+    tag === 'div' &&
+    (cleanProps.className?.includes('alignaa-video-hero') ||
+      cleanProps.className?.includes('uagb-block-047cd754')) &&
+    ctx.currentPath === '/de/startseite/'
+      ? [
+          {
+            tag: 'video',
+            props: {
+              className: 'alignaa-home-background-video',
+              src: '/assets/dental-model/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4',
+              autoPlay: true,
+              loop: true,
+              muted: true,
+              playsInline: true,
+              style: {
+                position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                objectFit: 'cover', zIndex: 0,
+              },
+            },
+            children: [],
+          },
+          ...children,
+        ]
+      : children;
+  const renderedChildren = renderedNodeChildren.flatMap((child, idx) => {
     const isPortalLink =
       child?.tag === 'a' &&
       typeof child.props?.href === 'string' &&
@@ -270,11 +295,18 @@ export default function App() {
     if (window.location.pathname !== resolved) {
       window.history.pushState({}, '', resolved);
     }
+    window.dispatchEvent(new Event('alignaa:navigate'));
     setCurrentPath(resolved);
     setMobileOpen(false);
     setExpandedSubmenus({});
     window.scrollTo(0, 0);
   }, []);
+
+  // Show the preloader after browser back/forward navigation as well.
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => window.dispatchEvent(new Event('alignaa:ready')));
+    return () => cancelAnimationFrame(frame);
+  }, [currentPath]);
 
   const toggleSubmenu = useCallback((key) => {
     setExpandedSubmenus((prev) => ({
@@ -286,6 +318,7 @@ export default function App() {
   // Handle browser back/forward buttons
   useEffect(() => {
     const handlePopState = () => {
+      window.dispatchEvent(new Event('alignaa:navigate'));
       setCurrentPath(normalizePath(window.location.pathname));
       setMobileOpen(false);
       setExpandedSubmenus({});
@@ -397,6 +430,7 @@ export default function App() {
 
   const ctx = useMemo(
     () => ({
+      currentPath,
       navigateTo,
       mobileOpen,
       setMobileOpen,
