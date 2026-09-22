@@ -466,10 +466,17 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 .page-id-2497 .wp-block-uagb-container.uagb-block-047cd754,
 .page-id-3096 .wp-block-uagb-container.uagb-block-047cd754 {
   background-image: url('/assets/alignerProduct.jpeg') !important;
-  background-size: 50% auto !important; /* Make it smaller instead of fully covering */
-  background-position: right 78px !important;
+  background-size: auto 100% !important;
+  background-position: right center !important;
   background-repeat: no-repeat !important;
   background-color: transparent !important;
+}
+
+@media (max-width: 767px) {
+  .page-id-2497 .wp-block-uagb-container.uagb-block-047cd754,
+  .page-id-3096 .wp-block-uagb-container.uagb-block-047cd754 {
+    background-position: calc(100% + 18px) center !important;
+  }
 }
 
 /* Center the Free Webinar hero's registration button. */
