@@ -376,6 +376,14 @@
 .wp-block-video video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"] {
   object-fit: contain;
   object-position: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Match the rounded video frame used by the introduction video. */
+.wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) {
+  overflow: hidden;
+  border-radius: 18px;
 }
 
 .alignaa-introduction { width: 100%; padding: 24px 0; text-align: center; }
@@ -384,7 +392,7 @@
 .alignaa-introduction .alignaa-introduction-copy { max-width: 640px; margin: 0 auto 28px; color: #52626a; font-size: 15px; line-height: 1.8; }
 .alignaa-introduction .alignaa-introduction-media { width: 100%; max-width: 324px; margin: 0 auto; }
 .alignaa-introduction video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: contain; border-radius: 14px; background: #f1f7f8; box-shadow: 0 12px 36px #163e4d1a; }
-.alignaa-introduction figcaption { margin-top: 14px; color: #52626a; font-size: 12px; line-height: 1.6; }
+.alignaa-introduction figcaption { display: none; }
 @media (max-width: 600px) {
   .alignaa-introduction { padding: 16px 0; }
   .alignaa-introduction .alignaa-introduction-media { max-width: 290px; }
