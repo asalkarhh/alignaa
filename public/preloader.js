@@ -1,4 +1,5 @@
 (() => {
+  const loaderMarkup = '<div class="alignaa-loader-content"><img class="alignaa-loader-logo" src="/assets/Logo_color.png" alt="Alignaa" /><p class="alignaa-loader-tagline">clarity in every smile...</p><div class="alignaa-loader-bar" role="progressbar" aria-label="Loading"></div></div>';
   const start = (loader) => {
     const started = performance.now();
     let dismissed = false;
@@ -30,7 +31,7 @@
     loader.setAttribute('role', 'status');
     loader.setAttribute('aria-live', 'polite');
     loader.setAttribute('aria-label', 'Loading Alignaa');
-    loader.innerHTML = '<video class="alignaa-loader-video" autoplay muted playsinline preload="auto" aria-hidden="true"><source src="/assets/Preloading.mp4" type="video/mp4" /></video>';
+    loader.innerHTML = loaderMarkup;
     document.body.appendChild(loader);
     start(loader);
   });

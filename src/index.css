@@ -472,6 +472,64 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   background-color: transparent !important;
 }
 
+/* Keep the animated logo aligned and sized like the original logo image. */
+.alignaa-logo-video {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Transparent CSS recreation of the Preloading.mp4 logo animation. */
+.alignaa-logo-animation {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.alignaa-logo-layer {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.alignaa-logo-mark {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 77%);
+  animation: alignaa-logo-mark-reveal 4.1s ease-in-out infinite;
+}
+
+.alignaa-logo-text {
+  clip-path: inset(0 23% 0 0);
+}
+
+@keyframes alignaa-logo-mark-reveal {
+  0%, 12% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+  }
+  32%, 72% {
+    opacity: 1;
+    clip-path: inset(0 0 0 77%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 77%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alignaa-logo-mark {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 @media (max-width: 767px) {
   .page-id-2497 .wp-block-uagb-container.uagb-block-047cd754,
   .page-id-3096 .wp-block-uagb-container.uagb-block-047cd754 {
@@ -492,4 +550,27 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 .page-id-2512 a[href*="gotowebinar"] {
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+/* Mobile-only content card spacing and soft frame. */
+@media (max-width: 767px) {
+  .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 18px !important;
+    border: 1px solid rgba(22, 62, 77, 0.12);
+    box-shadow: 0 8px 24px rgba(22, 62, 77, 0.14);
+  }
+
+  .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) > video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 18px !important;
+    clip-path: inset(0 round 18px);
+  }
 }

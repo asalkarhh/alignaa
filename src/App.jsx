@@ -60,11 +60,20 @@ function InstagramNavItem() {
   );
 }
 
+function LogoVideo({ imageProps }) {
+  return <img {...imageProps} src="/assets/Logo_color.png" />;
+}
+
 function ASTNode({ node, ctx }) {
   if (node == null) return null;
   if (typeof node === 'string') return node;
 
   const { tag, props = {}, children = [] } = node;
+
+  // Replace the shared header/footer logo with the animated logo video.
+  if (tag === 'img' && typeof props.src === 'string' && props.src.endsWith('/Logo_color.png')) {
+    return <LogoVideo imageProps={props} />;
+  }
 
   // Clone props and normalize for React
   const cleanProps = {};
@@ -163,12 +172,17 @@ function ASTNode({ node, ctx }) {
   // Handle Links
   if (tag === 'a' && cleanProps.href) {
     const href = cleanProps.href;
+    const isDisabledAction = href === 'javascript:void(0)';
     const isLangToggle = href === '#pll_switcher';
     const isInternal = href.startsWith('/') && !href.startsWith('/assets/');
 
     const origClick = cleanProps.onClick;
     cleanProps.onClick = (e) => {
       if (origClick) origClick(e);
+      if (isDisabledAction) {
+        e.preventDefault();
+        return;
+      }
       if (isLangToggle) {
         e.preventDefault();
         ctx.toggleSubmenu('pll_switcher');
@@ -292,9 +306,18 @@ export default function App() {
   // Navigate helper
   const navigateTo = useCallback((targetPath) => {
     const resolved = normalizePath(targetPath);
-    if (window.location.pathname !== resolved) {
-      window.history.pushState({}, '', resolved);
+    // Avoid reloading the current page when the Home logo is clicked, but
+    // still return the user to the top on mobile (and close the menu).
+    if (window.location.pathname === resolved) {
+      setMobileOpen(false);
+      setExpandedSubmenus({});
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
+
+    window.history.pushState({}, '', resolved);
+    // Show the navigation preloader whenever the user changes routes,
+    // including when returning to Home from another page.
     window.dispatchEvent(new Event('alignaa:navigate'));
     setCurrentPath(resolved);
     setMobileOpen(false);
