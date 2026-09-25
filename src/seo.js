@@ -1,4 +1,13 @@
-const brandKeywords = ['Alignaa', 'Alignaa Aligner', 'Dr. Praful', 'Praful Ozarkar'];
+// Keep the primary brand/entity phrases on every indexable page. These are also
+// used by the Vite build to create crawler-visible meta tags in each route HTML.
+const brandKeywords = [
+  'Alignaa',
+  'Alignaa Aligner',
+  'Alignaa.in',
+  'Praful Ozarkar',
+  'Alignaa founder',
+  'Alignaa founder Praful Ozarkar',
+];
 
 const introductionKeywords = ['Alignaa founder Praful Ozarkar', 'Alignaa introduction video', 'clinician-led clear aligners', 'hybrid orthodontic treatment', 'digital orthodontics', 'anterior crossbite treatment', 'Dr. Ganesh Shinde', 'Dr. Tanvi Bore', 'clear aligner patient experience'];
 const germanIntroductionKeywords = ['Alignaa Gründer Praful Ozarkar', 'Alignaa Vorstellungsvideo', 'ärztlich begleitete Aligner-Behandlung', 'hybride Kieferorthopädie', 'digitale Kieferorthopädie', 'anteriorer Kreuzbiss', 'Dr. Ganesh Shinde', 'Dr. Tanvi Bore', 'Aligner Patientenerfahrung'];
@@ -31,8 +40,9 @@ export function getSeo(path) {
     : path === '/de/startseite/'
       ? 'Entdecken Sie Alignaa Aligner für Zahnärzte. Lernen Sie Gründer Praful Ozarkar, das Behandlungsteam und die Erfahrungen einer Patientin kennen.'
       : defaultDescription;
-  const legal = /privacy-policy|legal-disclosure|datenschutz|impressum/.test(path);
-  return { path, title, description, keywords: [...(legal ? ['Alignaa'] : brandKeywords), ...keywords, ...videoKeywords].join(', ') };
+  // Keep the canonical brand/entity terms on every route, including legal and
+  // German pages, so each generated HTML page has consistent site identity.
+  return { path, title, description, keywords: [...brandKeywords, ...keywords, ...videoKeywords].join(', ') };
 }
 
 export function seoMeta(seo) {
@@ -46,6 +56,8 @@ export function seoMeta(seo) {
     ['property', 'og:url', `${siteUrl}${seo.path || '/'}`],
     ['property', 'og:image', socialImage],
     ['property', 'og:image:alt', 'Alignaa clear aligner treatment'],
+    ['name', 'author', 'Praful Ozarkar, founder of Alignaa'],
+    ['name', 'publisher', 'Alignaa'],
     ['name', 'twitter:card', 'summary'],
     ['name', 'twitter:title', seo.title],
     ['name', 'twitter:description', seo.description],

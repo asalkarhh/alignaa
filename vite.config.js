@@ -14,11 +14,33 @@ function pageHtml(html, path) {
   const canonical = `${siteUrl}${path === '/' ? '/' : path}`;
   const structuredData = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Alignaa',
-    url: siteUrl,
-    logo: `${siteUrl}/assets/Logo_color.png`,
-    image: socialImage,
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'Alignaa',
+        alternateName: ['Alignaa Aligner', 'Alignaa.in'],
+        url: siteUrl,
+        logo: `${siteUrl}/assets/Logo_color.png`,
+        image: socialImage,
+        founder: { '@id': `${siteUrl}/#praful-ozarkar` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${siteUrl}/#praful-ozarkar`,
+        name: 'Praful Ozarkar',
+        jobTitle: 'Founder',
+        worksFor: { '@id': `${siteUrl}/#organization` },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        name: 'Alignaa',
+        alternateName: 'Alignaa Aligner',
+        url: siteUrl,
+        publisher: { '@id': `${siteUrl}/#organization` },
+      },
+    ],
   });
   return html.replace(/\s*<meta\b[^>]*data-seo[^>]*>/g, '')
     .replace(/<html lang="[^"]*">/, `<html lang="${pages[path].lang}">`)
