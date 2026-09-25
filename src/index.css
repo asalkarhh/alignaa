@@ -554,6 +554,13 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 
 /* Mobile-only content card spacing and soft frame. */
 @media (max-width: 767px) {
+  .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) > video {
+    height: auto !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
   .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) {
     margin-left: 16px;
     margin-right: 16px;
@@ -572,5 +579,24 @@ video, .wp-block-video video, .alignaa-introduction-media video {
     max-width: 100%;
     border-radius: 18px !important;
     clip-path: inset(0 round 18px);
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    height: auto;
+  }
+
+  .site-content .wp-block-video:has(> video[src="/assets/90f9b76c9c-3D-Plan-Alignaa-GIF.mp4"]) > video {
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
   }
 }
