@@ -600,3 +600,118 @@ video, .wp-block-video video, .alignaa-introduction-media video {
     object-fit: contain !important;
   }
 }
+
+/* Custom Testimonial styling for Dr. Ganesh Shinde & theme refinement */
+.uagb-block-ganesh-shinde .uagb-tm__image img,
+.uagb-block-ganesh-shinde img.uagb-tm-img-src {
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.uagb-block-ganesh-shinde .uagb-tm__author-name {
+  color: #007b7f !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 1.6em !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 2px !important;
+}
+
+.uagb-tm__company {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #64748b !important;
+  margin-top: 2px !important;
+  font-style: normal !important;
+  line-height: 1.4 !important;
+}
+
+/* Testimonials Section Visibility & Grid Fix */
+.uagb-tm__items {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.uagb-slick-carousel .slick-slide,
+.is-carousel .uagb-testimonial__wrap {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.wp-block-uagb-container.uagb-block-32dc6ee7 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 30px !important;
+}
+
+.uagb-block-32dc6ee7 > .wp-block-uagb-testimonial {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.uagb-testimonial__wrap {
+  height: 100% !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.uagb-tm__content {
+  height: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  padding: 24px 28px !important;
+  background-color: var(--ast-global-color-5, #ffffff) !important;
+  border: 1px solid rgba(0, 123, 127, 0.15) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.uagb-tm__content:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 123, 127, 0.1) !important;
+}
+
+.uagb-tm__image-content {
+  margin-right: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+.uagb-tm__text-wrap {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.uagb-tm__desc {
+  font-size: 15px !important;
+  line-height: 1.7em !important;
+  color: var(--ast-global-color-2, #333333) !important;
+  font-weight: 500 !important;
+  margin-bottom: 16px !important;
+}
+
+@media (max-width: 921px) {
+  .wp-block-uagb-container.uagb-block-32dc6ee7 {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
