@@ -103,7 +103,7 @@
                                       "props": {
                                         "className": "site-branding ast-site-identity"
                                       },
-                                      "children": [
+                                      "children":  [
                                         {
                                           "tag": "span",
                                           "props": {

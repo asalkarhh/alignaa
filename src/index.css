@@ -603,16 +603,18 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 
 /* Custom Testimonial styling for Dr. Ganesh Shinde & theme refinement */
 .uagb-block-ganesh-shinde .uagb-tm__image img,
-.uagb-block-ganesh-shinde img.uagb-tm-img-src {
-  width: 70px !important;
-  height: 70px !important;
-  min-width: 70px !important;
-  max-width: 70px !important;
+.uagb-block-ganesh-shinde img.uagb-tm-img-src,
+.wp-block-uagb-testimonial .uagb-tm__image img {
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px !important;
+  max-width: 100px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   object-position: center top !important;
   aspect-ratio: 1 / 1 !important;
 }
+
 
 .uagb-block-ganesh-shinde .uagb-tm__author-name {
   color: #007b7f !important;
@@ -674,7 +676,7 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   box-sizing: border-box !important;
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   padding: 24px 28px !important;
   background-color: var(--ast-global-color-5, #ffffff) !important;
   border: 1px solid rgba(0, 123, 127, 0.15) !important;
@@ -691,6 +693,10 @@ video, .wp-block-video video, .alignaa-introduction-media video {
 .uagb-tm__image-content {
   margin-right: 18px !important;
   flex-shrink: 0 !important;
+  align-self: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .uagb-tm__text-wrap {
@@ -714,4 +720,5 @@ video, .wp-block-video video, .alignaa-introduction-media video {
     gap: 20px !important;
   }
 }
+
 
