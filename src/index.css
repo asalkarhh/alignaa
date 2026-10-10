@@ -636,23 +636,30 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   line-height: 1.4 !important;
 }
 
-/* Testimonials Section Visibility & Grid Fix */
+/* Testimonials Section Visibility, Equal Height & Grid Fix */
 .uagb-tm__items {
   visibility: visible !important;
   opacity: 1 !important;
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  flex: 1 !important;
 }
 
 .uagb-slick-carousel .slick-slide,
 .is-carousel .uagb-testimonial__wrap {
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
   visibility: visible !important;
   opacity: 1 !important;
+  height: 100% !important;
+  flex: 1 !important;
 }
 
 .wp-block-uagb-container.uagb-block-32dc6ee7 {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
   gap: 24px !important;
   width: 100% !important;
   box-sizing: border-box !important;
@@ -703,7 +710,8 @@ video, .wp-block-video video, .alignaa-introduction-media video {
   flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
+  justify-content: center !important;
+  height: 100% !important;
 }
 
 .uagb-tm__desc {

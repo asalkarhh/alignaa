@@ -29,7 +29,7 @@
         "href": "/assets/aa279cd999-slick.min.css"
       },
       {
-        "href": "/assets/5172690e5e-uag-css-961.css" 
+        "href": "/assets/5172690e5e-uag-css-961.css"
       },
       {
         "css": ".recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}"
@@ -103,7 +103,7 @@
                                       "props": {
                                         "className": "site-branding ast-site-identity"
                                       },
-                                      "children":  [
+                                      "children": [
                                         {
                                           "tag": "span",
                                           "props": {
@@ -3096,6 +3096,126 @@
                                               ]
                                             }
                                           ]
+                                        },
+                                        {
+                                          "tag": "div",
+                                          "props": {
+                                            "className": "wp-block-uagb-testimonial uagb-slick-carousel uagb-tm__arrow-outside uagb-block-164d6b06 uagb-block-arthava-deshmukh uagb-post__carousel_notset uagb-post__carousel_notset-tablet uagb-post__carousel_notset-mobile"
+                                          },
+                                          "children": [
+                                            {
+                                              "tag": "div",
+                                              "props": {
+                                                "className": "is-carousel uagb-tm__columns-1 uagb-tm__items"
+                                              },
+                                              "children": [
+                                                {
+                                                  "tag": "div",
+                                                  "props": {
+                                                    "className": "uagb-testimonial__wrap uagb-tm__imgicon-style-circle uagb-tm__image-position-left uagb-tm__image-aligned-top uagb-tm__bg-type-color"
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "tag": "div",
+                                                      "props": {
+                                                        "className": "uagb-tm__content"
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__overlay"
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__image-content"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__image"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "tag": "img",
+                                                                  "props": {
+                                                                    "loading": "lazy",
+                                                                    "decoding": "async",
+                                                                    "className": "uagb-tm-img-src",
+                                                                    "src": "/assets/Testimonials/Dr_Arthava_Deshmukh.jpeg",
+                                                                    "alt": "Dr. Arthava Deshmukh",
+                                                                    "width": "70",
+                                                                    "height": "70",
+                                                                    "title": "Dr. Arthava Deshmukh"
+                                                                  },
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__text-wrap"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__desc"
+                                                              },
+                                                              "children": [
+                                                                "“Having used Alignaa for over a year, I’ve come to appreciate the thought and precision that go into their aligners. The combination of quality, comfort, and attention to detail makes them a brand I genuinely trust and highly recommend to fellow dental professionals.”"
+                                                              ]
+                                                            },
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__meta-inner"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "tag": "div",
+                                                                  "props": {
+                                                                    "className": "uagb-testimonial-details"
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "tag": "span",
+                                                                      "props": {
+                                                                        "className": "uagb-tm__author-name"
+                                                                      },
+                                                                      "children": [
+                                                                        "DR. ARTHAVA DESHMUKH"
+                                                                      ]
+                                                                    },
+                                                                    {
+                                                                      "tag": "span",
+                                                                      "props": {
+                                                                        "className": "uagb-tm__company"
+                                                                      },
+                                                                      "children": [
+                                                                        "Orthodontist, Ch. Sambhaji Nagar"
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
                                         }
                                       ]
                                     }
@@ -4405,7 +4525,7 @@
                                 "className": "developer-link"
                               },
                               "children": [
-                                "Asalkar Techworks"
+                                "Asalkar Techworks Pvt. Ltd."
                               ]
                             }
                           ]
@@ -20391,6 +20511,126 @@
                                                                       },
                                                                       "children": [
                                                                         "Dantveda Dent Care, Pune"
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "tag": "div",
+                                          "props": {
+                                            "className": "wp-block-uagb-testimonial uagb-slick-carousel uagb-tm__arrow-outside uagb-block-164d6b06 uagb-block-arthava-deshmukh uagb-post__carousel_notset uagb-post__carousel_notset-tablet uagb-post__carousel_notset-mobile"
+                                          },
+                                          "children": [
+                                            {
+                                              "tag": "div",
+                                              "props": {
+                                                "className": "is-carousel uagb-tm__columns-1 uagb-tm__items"
+                                              },
+                                              "children": [
+                                                {
+                                                  "tag": "div",
+                                                  "props": {
+                                                    "className": "uagb-testimonial__wrap uagb-tm__imgicon-style-circle uagb-tm__image-position-left uagb-tm__image-aligned-top uagb-tm__bg-type-color"
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "tag": "div",
+                                                      "props": {
+                                                        "className": "uagb-tm__content"
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__overlay"
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__image-content"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__image"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "tag": "img",
+                                                                  "props": {
+                                                                    "loading": "lazy",
+                                                                    "decoding": "async",
+                                                                    "className": "uagb-tm-img-src",
+                                                                    "src": "/assets/Testimonials/Dr_Arthava_Deshmukh.jpeg",
+                                                                    "alt": "Dr. Arthava Deshmukh",
+                                                                    "width": "70",
+                                                                    "height": "70",
+                                                                    "title": "Dr. Arthava Deshmukh"
+                                                                  },
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "tag": "div",
+                                                          "props": {
+                                                            "className": "uagb-tm__text-wrap"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__desc"
+                                                              },
+                                                              "children": [
+                                                                "„Nachdem ich Alignaa seit über einem Jahr verwende, schätze ich die Überlegung und Präzision, die in ihre Aligner einfließen. Die Kombination aus Qualität, Komfort und Liebe zum Detail macht Alignaa zu einer Marke, der ich vollkommen vertraue und meinen zahnmedizinischen Kollegen wärmstens empfehle.“"
+                                                              ]
+                                                            },
+                                                            {
+                                                              "tag": "div",
+                                                              "props": {
+                                                                "className": "uagb-tm__meta-inner"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "tag": "div",
+                                                                  "props": {
+                                                                    "className": "uagb-testimonial-details"
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "tag": "span",
+                                                                      "props": {
+                                                                        "className": "uagb-tm__author-name"
+                                                                      },
+                                                                      "children": [
+                                                                        "DR. ARTHAVA DESHMUKH"
+                                                                      ]
+                                                                    },
+                                                                    {
+                                                                      "tag": "span",
+                                                                      "props": {
+                                                                        "className": "uagb-tm__company"
+                                                                      },
+                                                                      "children": [
+                                                                        "Orthodontist, Ch. Sambhaji Nagar"
                                                                       ]
                                                                     }
                                                                   ]
